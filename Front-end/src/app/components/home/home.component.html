@@ -1,0 +1,52 @@
+<div class="row" style="padding: 50px;">
+  
+    <div class="card-div col-md-4 col-sm-12">
+        <div class="card">
+          
+              <!--Card image-->
+              <div class="view  hm-bluegrey-light waves-light" mdbRippleRadius>
+                  <img src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" class="img-fluid" alt="Card image with a tree in a middle of a lake.">
+                  <a [routerLink]="'post/' + (posts['featured'])?.id ">
+                      <div class="mask mask-text flex-center"> <h3 class="white-text">featured <li class="fa fa-heart fa-xl"></li> </h3> </div>
+                  </a>
+              </div>
+          
+              <!--Card content-->
+              <div class="card-body">
+                  <!--Title-->
+                  <h4 class="card-title">{{(posts['featured'])?.post_title}}</h4>
+                  <!--Text-->
+                  <p class="card-text">{{(posts['featured'])?.post_summary}}</p>
+                  <a class="btn btn-primary waves-light" mdbRippleRadius [routerLink]="'post/' + (posts['featured'])?.id ">Read More</a>
+              </div>
+          
+          </div>
+          <!--/.Card-->
+      </div>
+      
+      <div class="card-div col-md-4 col-sm-12" *ngFor="let post of posts['posts']">
+    <div class="card">
+      
+          <!--Card image-->
+          <div class="view waves-light" mdbRippleRadius>
+              <img src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" class="img-fluid" alt="Card image with a tree in a middle of a lake.">
+              <a [routerLink]="'post/' + post.id " >
+                  <div class="mask flex-center"> </div>
+              </a>
+          </div>
+      
+          <!--Card content-->
+          <div class="card-body">
+              <!--Title-->
+              <h4 class="card-title">{{post.post_title}}</h4>
+              <!--Text-->
+              <p class="card-text">{{post.post_summary}}</p>
+              <a class="btn btn-primary waves-light" mdbRippleRadius [routerLink]="'post/' + post.id ">Read More</a>
+          </div>
+      
+      </div>
+      <!--/.Card-->
+  </div>
+  
+  </div>
+                
