@@ -8,7 +8,7 @@ In my limited time I was tring to finish the task..
 
 ### TODO
 
-- [-] - CRUD for Users and Posts
-- [X] - add SEO
-- [-] - add multi lang ( I will use Json Objects )
+- [ ]  CRUD for Users and Posts
+- [X]  add SEO
+- [ ]  add multi lang ( I will use Json Objects )
 
