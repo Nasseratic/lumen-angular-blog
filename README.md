@@ -3,7 +3,7 @@
 
 Expected time to end the tasks : **7/11h** 
 
-In my limited time I was tring to finish the task.. 
+In my limited time I was doing my best to finish the task.. 
 *Hope that my effort would meet your expectations.*
 
 ### TODO
