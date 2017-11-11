@@ -1,7 +1,7 @@
 # lumen-angular-blog
 ## 8 Digital Task
 
-Expected time to end the tasks : **7/11h** 
+Expected time to end the tasks : **6 / 11h** 
 
 In my limited time I was doing my best to finish the task.. 
 *Hope that my effort would meet your expectations.*
@@ -20,8 +20,9 @@ In my limited time I was doing my best to finish the task..
 - [X]  Home Page Ui.
 - [X]  Posts Page Ui.
 - [X]  Auth in in Ui.
+- [ ]  add multi lang ( I will use simple Json Objects ).
 - [ ]  Ui for CRUD Users
 - [ ]  Ui for CRUD Posts.
 - [ ]  Make use of SEO sevice.
-- [ ]  add multi lang ( I will use simple Json Objects ).
+
 
