@@ -9,6 +9,6 @@ In my limited time I was tring to finish the task..
 ### TODO
 
 - [ ]  CRUD for Users and Posts
-- [X]  add SEO follwing [this tutorial](https://www.youtube.com/watch?v=ANyOZIcGvB8)
+- [X]  add SEO following [this tutorial](https://www.youtube.com/watch?v=ANyOZIcGvB8)
 - [ ]  add multi lang ( I will use Json Objects )
 
