@@ -6,7 +6,11 @@ Expected time to end the tasks : **7/11h**
 In my limited time I was doing my best to finish the task.. 
 *Hope that my effort would meet your expectations.*
 
-### TODO
+
+### Screen Shot 
+[HERE](https://i.imgur.com/59jYFqg.png)
+
+## TODO
 
 - [X]  init Lumen Project ( Laravel microservices ).
 - [X]  init Angular Project ( with MDB Ui kit ).
@@ -21,3 +25,4 @@ In my limited time I was doing my best to finish the task..
 - [ ]  Ui for CRUD Posts.
 - [ ]  Make use of SEO sevice.
 - [ ]  add multi lang ( I will use simple Json Objects ).
+
