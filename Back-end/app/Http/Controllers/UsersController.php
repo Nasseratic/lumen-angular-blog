@@ -143,7 +143,7 @@ class UsersController extends Controller
             'password'=>md5($this->request->password)
         ])->first();
         if(!$loggedUser){
-            return response()->json("user not found");
+            return Response("user not found" , 400);
         }
         else{
             $token = bin2hex(random_bytes(16));

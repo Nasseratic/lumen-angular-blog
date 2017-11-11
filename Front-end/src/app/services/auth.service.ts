@@ -23,11 +23,11 @@ public url = 'http://localhost:8000/users/login';
         });
     return this.http.request(new Request(requestOptions)).toPromise()
       .then(response => {
-        if (response.status === 400 ) {
-            return false;
+        if (response.status !== 400 ) {
+          this.cookies.setCookie('token', this._getBody(response)['token'], 7);  // ( * )
+          return true;
           }else {
-            this.cookies.setCookie('token', this._getBody(response)['token'], 7);  // ( * )
-            return true;
+            return false;
           }
       })
       .catch(reject => {
@@ -36,8 +36,22 @@ public url = 'http://localhost:8000/users/login';
   }
 
   private _getBody($data: Response) {
-    let body = JSON.parse($data['_body']);
-    return body.data || null;
+    const body = JSON.parse($data['_body']);
+    return body || null;
   }
 
+  public isLoggedIn(): Boolean {
+    if (this.cookies.checkCookie('token')) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public logout() {
+    if (this.cookies.checkCookie('token')) {
+      this.cookies.removeCookie('token');
+      this.router.navigate(['/']);
+    }
+  }
 }

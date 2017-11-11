@@ -15,13 +15,23 @@
    <li class="nav-item">
        <a class="nav-link waves-light" routerLink="posts" mdbRippleRadius>ALL POSTS</a>
    </li>
+   <li class="nav-item">
+    <a class="nav-link waves-light" routerLink="/cupost" mdbRippleRadius *ngIf="auth.isLoggedIn()" >ADD POST <i class="fa fa-plus" aria-hidden="true"></i> </a>
+    </li>
    <!-- <li class="nav-item">
        <a class="nav-link waves-light" mdbRippleRadius>Pricing</a>
    </li> -->
 
 </ul>
 <!-- Links -->
-
+<ul class="navbar-nav">
+        <li class="nav-item">
+                <a class="nav-link waves-light" routerLink="signin" mdbRippleRadius *ngIf="!auth.isLoggedIn()">LOGIN</a>
+        </li>
+        <li class="nav-item">
+                <a class="nav-link waves-light" (click)="auth.logout()" mdbRippleRadius *ngIf="auth.isLoggedIn()">LOGOUT</a>
+        </li>
+</ul>
 <!-- Search form -->
 <!-- <form class="form-inline  waves-light" mdbRippleRadius>
    <input class="form-control mr-sm-2" type="text" placeholder="Search">

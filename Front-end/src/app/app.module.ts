@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { Http , HttpModule} from '@angular/http';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-
+import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
@@ -27,7 +27,9 @@ import { AuthService } from './services/auth.service';
     BrowserModule,
     MDBBootstrapModule.forRoot(),
     AppRoutingModule,
-    HttpModule
+    HttpModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [CookiesService , AuthService],
   bootstrap: [AppComponent],

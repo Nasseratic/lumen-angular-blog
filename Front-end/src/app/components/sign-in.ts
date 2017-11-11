@@ -1,34 +1,39 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CookiesService } from '../services/cookies.service';
 import { AuthService } from '../services/auth.service';
 import { Observable } from 'rxjs/Observable';
+import {  Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-dialog',
   template: `
-    <form [formGroup]='signinForm' (ngSubmit)='submitSigninForm(signinForm.value)'>
-      <h2 style='text-align: center'>User Login</h2>
-      <md-input-container class='col-md-12 row' style="min-width: 100%;">
-        <input mdInput type='text' class="col-md-12" [placeholder]="Email" formControlName='email'>
-      </md-input-container>
-      <md-input-container class='col-md-12 row' style="min-width: 100%;">
-        <input mdInput type='password' class="col-md-12" [placeholder]="Password" formControlName='password'>
-      </md-input-container>
-
+  <!-- Login form -->
+  <form   (ngSubmit)="submitSigninForm(signinForm.value)" [formGroup]='signinForm'class="col-6 card centerd">
+      <p class="h5 text-center mb-4">Sign in</p>
+      <div class="md-form">
+          <input type="text" id="defaultForm-email" class="form-control" mdbActive formControlName='email'>
+          <label for="defaultForm-email">Your email</label>
+      </div>
+      <div class="md-form">
+          <input type="password" id="defaultForm-pass" class="form-control" mdbActive formControlName='password'>
+          <label for="defaultForm-pass">Your password</label>
+      </div>
       <div class='col-md-12 row'>
       <div  *ngIf="loginErr" class="alert alert-danger col-md-12 center-block" role="alert"> Error unknowen email or password.</div>
       </div>
-
-      <div style='text-align:center'>
-      <button [disabled]="sending" md-raised-button  type='submit' color="accent" class='center-block' >
-        <md-spinner *ngIf='sending' class="center-block"></md-spinner> <span *ngIf='!sending' > User Login </span>
-      </button>
+      <div class="text-center">
+          <button [disabled]="sending"  type="submit"
+          class="btn btn-default waves-light" mdbRippleRadius>Login</button>
       </div>
-    </form>
+  </form>
+  <!-- Login form -->
+
+  
+
   `,
   providers: [ AuthService , FormBuilder],
-  styles: [ 'md-chip {max-width: 100%;}' , 'md-spinner{max-height:36px; display:inline-block;}' ],
+  styles: [ '.centerd{margin: 50px auto; padding: 35px;}' ],
 })
 export class SigninComponent {
 
@@ -37,7 +42,7 @@ export class SigninComponent {
   public  sending = false;
 
   constructor( public  fb: FormBuilder, public auth: AuthService,
-  public  cookies: CookiesService) {
+  public  cookies: CookiesService , public router: Router) {
 
     this.signinForm = fb.group({
       'email': [null, Validators.compose([Validators.email, Validators.required])],
@@ -51,10 +56,11 @@ export class SigninComponent {
         const that = this;
         this.auth.login($formData)
         .then(response => {
-
+          console.log(response);
         that.sending = false;
         if (response) {
-        return true;
+          this.router.navigate(['/']);
+          return true;
         } else {
             that.loginErr = true;
         }
